@@ -16,10 +16,10 @@
 #define DOOR 9
 #define TOGGLE 10
 
-const unsigned long topen = 40000;
-const unsigned long talarm = 500;
-const unsigned long temerg = 250;
-const unsigned long ttare = 3000;
+const unsigned long topen = 10000;
+const unsigned long talarm = 125;
+const unsigned long temerg = 63;
+const unsigned long ttare = 750;
 
 unsigned int estado = ECOOL;
 
@@ -47,7 +47,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Wait...");
   LoadCell.begin();
-  long stabilisingtime = 2000; // tare preciscion can be improved by adding a few seconds of stabilising time
+  long stabilisingtime = 500; // tare preciscion can be improved by adding a few seconds of stabilising time
   LoadCell.start(stabilisingtime);
   LoadCell.setCalFactor(105.3); // user set calibration factor (float)
   Serial.println("Startup + tare is complete");
